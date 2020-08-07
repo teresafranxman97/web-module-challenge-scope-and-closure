@@ -43,7 +43,7 @@ Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
 
-A:
+// Closures are basically what give us the ability to put functions together and access them from a parent level scope in child level. Closures remember the variables outside of it even if you pass that function elsewhere. You can pass variables down but you cannot pass them back up.
 
 2. Study the following code, then answer the questions below.
 
@@ -65,8 +65,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+// You can find the closure in line 60 and 62 as they both reference the "personalDice" function which allows these variables to access the contents of the function "personalDice".
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+// For me, the rolls were only a couple or 1 number(s) apart each time and at least once I got 2 so maybe the odds of it landing on 2 should not be so high over the odds of it landing on like 5 for example?
+
 c. What is the lexical scope of `newRoll`?
+
+// The lexical scope of 'newRoll' is function personalDice()
 
 ### Task 2c - Exit Ticket
 
