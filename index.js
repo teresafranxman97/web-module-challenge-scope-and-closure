@@ -28,13 +28,16 @@ function processFirstItem(stringList, callback) {
  *
  * 1. What is the difference between counter1 and counter2?
  *
- *
+ * // counter1 is function scoped
+ * // counter2 is global scoped
  *
  * 2. Which of the two uses a closure? How can you tell?
  *
- *  The code that uses a closure is counter2 because it contains a "let" variable outside of the function, therefore it is able to reach outside of the function.
+ * // counter2 uses a closure because it initialized a let variable outside of the function then used it within the function.
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ *
+ * //
  *
  */
 
@@ -56,7 +59,6 @@ function counter2() {
 }
 
 /* Task 2: inning() 
-
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(min, max) {
@@ -66,31 +68,31 @@ function inning(min, max) {
 console.log(inning(0, 2));
 
 /* Task 3: finalScore()
-
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
-
 For example, 
-
 finalScore(inning, 9) might return: 
 {
   "Home": 11,
   "Away": 5,
 }
-
 */
 
-function finalScore(/*code Here*/) {
-  /*Code Here*/
+function finalScore(callback, numOne) {
+  return callback(numOne);
 }
 
+function inning(a) {
+  let myObjt = { Home: 11, Away: 5, inning: a };
+  return myObjt;
+}
+
+finalScore(inning, 9);
+
 /* Task 4: 
-
 Create a function called `scoreboard` that accepts the following parameters: 
-
 (1) Callback function `getInningScore`
 (2) Callback function `inning`
 (3) A number of innings
-
 and returns the score at each pont in the game, like so:
 1st inning: awayTeam - homeTeam
 2nd inning: awayTeam - homeTeam
@@ -103,6 +105,16 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore() {
+  return "Score: 3";
 }
+
+function inning(score) {
+  return "inning: " + score;
+}
+
+function scoreboard(score, callBack, callBack2) {
+  console.log(callback() + " " + callBack2(score));
+}
+
+scoreboard(9, getInningScore, inning);
